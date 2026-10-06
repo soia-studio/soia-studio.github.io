@@ -77,10 +77,14 @@
             background: linear-gradient(to bottom, #1f5a88, #1b4a73);
         }
 
-        .logo-text {
-            font-size: 38px;
-            font-weight: 800;
-            letter-spacing: 0.01em;
+        .header-logo-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 52px;
+            width: auto;
         }
 
         .header-right {
@@ -302,6 +306,26 @@
             text-underline-offset: 3px;
         }
 
+        .contact .response-time {
+            margin-top: 14px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        /* ---------- Footer ---------- */
+
+        footer.block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 64px;
+            background: #0c1324;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         /* ---------- Responsive ---------- */
 
         @media (max-width: 900px) {
@@ -320,8 +344,8 @@
                 height: 72px;
             }
 
-            .logo-text {
-                font-size: 28px;
+            .header-logo {
+                height: 40px;
             }
 
             nav {
@@ -368,7 +392,9 @@
 <div class="page">
 
     <header class="block">
-        <a href="#" class="logo-text">SOIA</a>
+        <a href="#" class="header-logo-link">
+            <img class="header-logo" src="logoSoia_white.png" alt="SOIA">
+        </a>
 
         <div class="header-right">
             <nav>
@@ -474,9 +500,14 @@
                 For support and enquiries:
                 <a href="mailto:support.soia@gmail.com">support.soia@gmail.com</a>
             </p>
+            <p class="response-time">Response time: within 1–2 business days</p>
         </section>
 
     </main>
+
+    <footer class="block">
+        © 2026 Soia Studio
+    </footer>
 
 </div>
 
