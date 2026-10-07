@@ -7,6 +7,8 @@
     <title>SOIA — Unity Tools & Resources</title>
     <meta name="description" content="SOIA creates tools and resources for Unity URP, with VR support, flexible features, intuitive workflows, and multilingual support.">
 
+    <link rel="icon" type="image/png" href="logoSoia.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -252,9 +254,36 @@
         }
 
         .subsection-title {
-            font-size: 20px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 20px;
+        }
+
+        .languages {
+            display: flex;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .lang {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #b4b7c2;
+            color: #111111;
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 24px;
+        }
+
+        .about .languages-note {
+            margin-top: 10px;
+            font-size: 11.5px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.45);
         }
 
         .tools-title {
@@ -456,6 +485,14 @@
                     and ready-to-use examples, with clear interfaces and
                     multilingual support directly within Unity.
                 </p>
+
+                <div class="languages" aria-label="Supported languages">
+                    <span class="lang">En</span>
+                    <span class="lang">Pt</span>
+                    <span class="lang">Fr</span>
+                    <span class="lang">Es</span>
+                </div>
+                <p class="languages-note">Multilingual interfaces directly within Unity.</p>
             </div>
 
             <img class="about-logo" src="logoSoia.png" alt="SOIA logo">
@@ -481,7 +518,7 @@
                 <article class="product-card">
                     <img src="standard.png" alt="TOONest Standard Shader">
                     <h3>Standard</h3>
-                    <p>Outline, sketch style; XRay... </p>
+                    <p>Outline, sketch style &amp; XRay</p>
                 </article>
 
                 <article class="product-card">
