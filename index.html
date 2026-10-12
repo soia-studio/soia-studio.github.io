@@ -328,6 +328,18 @@
             line-height: 1.35;
         }
 
+        .tools-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .tool-lines {
+            list-style: none;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1.5;
+            min-height: 54px;
+        }
+
         /* ---------- Contact ---------- */
 
         .contact {
@@ -491,6 +503,7 @@
                     <span class="lang">Pt</span>
                     <span class="lang">Fr</span>
                     <span class="lang">Es</span>
+                    <span class="lang">Ja</span>
                 </div>
                 <p class="languages-note">Multilingual interfaces directly within Unity.</p>
             </div>
@@ -518,7 +531,7 @@
                 <article class="product-card">
                     <img src="standard.png" alt="TOONest Standard Shader">
                     <h3>Standard</h3>
-                    <p>Outline, sketch style; XRay...</p>
+                    <p>Outline, sketch style &amp; XRay</p>
                 </article>
 
                 <article class="product-card">
@@ -549,11 +562,46 @@
 
             <h3 class="subsection-title tools-title">Tools</h3>
 
-            <img
-                class="tools-image"
-                src="tools.png"
-                alt="TOONest tools: Wind Painter, River Designer, MeshBrush and Image Processor"
-            >
+            <div class="product-grid tools-grid">
+
+                <article class="product-card">
+                    <img src="water%20tools.png" alt="TOONest Water Tools">
+                    <h3>Water Tools</h3>
+                    <ul class="tool-lines">
+                        <li>River + waterfall</li>
+                        <li>Shoreline</li>
+                        <li>Shore Foam Baker</li>
+                    </ul>
+                </article>
+
+                <article class="product-card">
+                    <img src="meshBrush.png" alt="TOONest Mesh Brush">
+                    <h3>Mesh Brush</h3>
+                    <ul class="tool-lines">
+                        <li>Surface Paint</li>
+                        <li>Mesh Scatter</li>
+                    </ul>
+                </article>
+
+                <article class="product-card">
+                    <img src="vegTools.png" alt="TOONest Vegetation Tools">
+                    <h3>Vegetation Tools</h3>
+                    <ul class="tool-lines">
+                        <li>Wind Painter</li>
+                        <li>Billboard Generator</li>
+                    </ul>
+                </article>
+
+                <article class="product-card">
+                    <img src="imageProc.png" alt="TOONest Image Processor">
+                    <h3>Image Processor</h3>
+                    <ul class="tool-lines">
+                        <li>Styles</li>
+                        <li>Output</li>
+                    </ul>
+                </article>
+
+            </div>
         </section>
 
         <!-- Contact -->
