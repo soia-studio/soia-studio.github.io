@@ -304,7 +304,6 @@
 
         .product-card {
             background: linear-gradient(to bottom, #5a5e84 0%, #46527d 35%, #2d4372 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow:
                 0 14px 30px rgba(4, 10, 24, 0.55),
                 0 4px 10px rgba(4, 10, 24, 0.35),
@@ -343,6 +342,58 @@
             font-weight: 500;
             line-height: 1.5;
             min-height: 54px;
+        }
+
+        /* ---------- Tutorials ---------- */
+
+        .tutorial-card {
+            display: block;
+            transition: transform 0.2s ease;
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .tutorial-card .thumb {
+            position: relative;
+        }
+
+        .tutorial-card .thumb img {
+            aspect-ratio: 16 / 9;
+            background: #0c1324;
+        }
+
+        .tutorial-card .play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 46px;
+            height: 46px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            transition: background 0.2s ease;
+        }
+
+        .tutorial-card .play::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-35%, -50%);
+            border-style: solid;
+            border-width: 9px 0 9px 15px;
+            border-color: transparent transparent transparent #ffffff;
+        }
+
+        .tutorial-card:hover .play {
+            background: rgba(255, 0, 0, 0.85);
+        }
+
+        .tutorial-card h3 {
+            font-size: 15px;
+            margin: 10px 0 3px;
         }
 
         /* ---------- Contact ---------- */
@@ -607,6 +658,11 @@
                 </article>
 
             </div>
+
+            <h3 class="subsection-title tools-title">Tutorials</h3>
+
+            <!-- Os cards são gerados pela lista TUTORIALS no fim do ficheiro -->
+            <div class="product-grid tools-grid" id="tutorials-grid"></div>
         </section>
 
         <!-- Contact -->
@@ -626,6 +682,87 @@
     </footer>
 
 </div>
+
+<script>
+    /* ============================================================
+       LISTA DE TUTORIAIS — edita aqui.
+       Cada linha = 1 card. Basta trocar o título, a descrição e o
+       link do vídeo do YouTube (youtu.be/..., youtube.com/watch?v=...).
+       A miniatura é obtida automaticamente a partir do link.
+       ============================================================ */
+    const TUTORIALS = [
+        { title: "Standard",         description: "Tutorial", url: "https://youtu.be/WxbOLRjK1B8" },
+        { title: "Water",            description: "Tutorial", url: "https://youtu.be/WxbOLRjK1B8" },
+        { title: "Dissolve+",        description: "Tutorial", url: "https://youtu.be/WxbOLRjK1B8" },
+        { title: "Sky & Cloud",      description: "Tutorial", url: "https://youtu.be/WxbOLRjK1B8" },
+        { title: "Vegetation",       description: "Tutorial", url: "https://youtu.be/WxbOLRjK1B8" },
+        { title: "Water Tools",      description: "Tutorial", url: "https://youtu.be/WxbOLRjK1B8" },
+        { title: "Mesh Brush",       description: "Tutorial", url: "https://youtu.be/WxbOLRjK1B8" },
+        { title: "Image Processor",  description: "Tutorial", url: "https://youtu.be/WxbOLRjK1B8" }
+    ];
+
+    function getYouTubeId(url) {
+        try {
+            const u = new URL(url);
+            if (u.hostname.includes("youtu.be")) {
+                return u.pathname.slice(1);
+            }
+            if (u.searchParams.get("v")) {
+                return u.searchParams.get("v");
+            }
+            const parts = u.pathname.split("/").filter(Boolean);
+            const i = parts.findIndex(p => p === "embed" || p === "shorts" || p === "live");
+            return i >= 0 ? parts[i + 1] : "";
+        } catch (e) {
+            return "";
+        }
+    }
+
+    (function renderTutorials() {
+        const grid = document.getElementById("tutorials-grid");
+        if (!grid) return;
+
+        TUTORIALS.forEach(function (t) {
+            const id = getYouTubeId(t.url);
+
+            const card = document.createElement("a");
+            card.className = "product-card tutorial-card";
+            card.href = t.url;
+            card.target = "_blank";
+            card.rel = "noopener";
+
+            const thumb = document.createElement("div");
+            thumb.className = "thumb";
+
+            const img = document.createElement("img");
+            img.alt = t.title + " tutorial";
+            img.loading = "lazy";
+            img.src = "https://img.youtube.com/vi/" + id + "/maxresdefault.jpg";
+            // Se não existir miniatura HD, usa a normal
+            img.onerror = function () {
+                img.onerror = null;
+                img.src = "https://img.youtube.com/vi/" + id + "/hqdefault.jpg";
+            };
+
+            const play = document.createElement("span");
+            play.className = "play";
+
+            thumb.appendChild(img);
+            thumb.appendChild(play);
+
+            const h3 = document.createElement("h3");
+            h3.textContent = t.title;
+
+            const p = document.createElement("p");
+            p.textContent = t.description;
+
+            card.appendChild(thumb);
+            card.appendChild(h3);
+            card.appendChild(p);
+            grid.appendChild(card);
+        });
+    })();
+</script>
 
 </body>
 </html>
