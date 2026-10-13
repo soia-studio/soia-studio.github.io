@@ -360,6 +360,11 @@
             padding-right: 84px;
         }
 
+        .has-badges.three-badges p,
+        .has-badges.three-badges .tool-lines {
+            padding-right: 116px;
+        }
+
         .badges {
             position: absolute;
             right: 12px;
@@ -394,6 +399,17 @@
             height: 1px;
             margin: 52px 8px 0;
             background: rgba(255, 255, 255, 0.85);
+        }
+
+        .tools-note {
+            margin-top: 34px;
+            font-size: 10.5px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .tools-note + hr.thin {
+            margin-top: 10px;
         }
 
         .tutorials-title {
@@ -690,14 +706,14 @@
                     <span class="badges" aria-hidden="true"><span class="badge b-wa" title="Water">Wa</span></span>
                 </article>
 
-                <article class="product-card has-badges two-badges">
+                <article class="product-card has-badges three-badges">
                     <img src="meshBrush.png" alt="TOONest Mesh Brush">
                     <h3>Mesh Brush</h3>
                     <ul class="tool-lines">
                         <li>Surface Paint</li>
-                        <li>Mesh Scatter</li>
+                        <li>Mesh Scatter*</li>
                     </ul>
-                    <span class="badges" aria-hidden="true"><span class="badge b-dp" title="Dissolve+">D+</span><span class="badge b-st" title="Standard">St</span></span>
+                    <span class="badges" aria-hidden="true"><span class="badge b-dp" title="Dissolve+">D+</span><span class="badge b-st" title="Standard">St</span><span class="badge b-ve" title="Vegetation">Ve</span></span>
                 </article>
 
                 <article class="product-card has-badges">
@@ -721,6 +737,8 @@
                 </article>
 
             </div>
+
+            <p class="tools-note">*Standard only</p>
 
             <hr class="thin">
 
