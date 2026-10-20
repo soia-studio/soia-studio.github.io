@@ -262,7 +262,8 @@
 
         .languages {
             display: flex;
-            gap: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-top: 40px;
         }
 
@@ -270,13 +271,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
+            height: 34px;
+            padding: 0 12px;
+            border-radius: 7px;
             background: #b4b7c2;
             color: #111111;
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1;
         }
 
         .about .languages-note {
@@ -625,11 +627,11 @@
                 </p>
 
                 <div class="languages" aria-label="Supported languages">
-                    <span class="lang">En</span>
-                    <span class="lang">Pt</span>
-                    <span class="lang">Fr</span>
-                    <span class="lang">Es</span>
-                    <span class="lang">Ja</span>
+                    <span class="lang">English</span>
+                    <span class="lang">Português</span>
+                    <span class="lang">Français</span>
+                    <span class="lang">Español</span>
+                    <span class="lang" lang="ja">日本語</span>
                 </div>
                 <p class="languages-note">Multilingual interfaces directly within Unity.</p>
             </div>
@@ -696,8 +698,8 @@
             <div class="product-grid tools-grid">
 
                 <article class="product-card has-badges">
-                    <img src="water%20tools.png" alt="TOONest Water Tools">
-                    <h3>Water Tools</h3>
+                    <img src="water%20tools.png" alt="TOONest Renderer Features">
+                    <h3>Renderer Features</h3>
                     <ul class="tool-lines">
                         <li>River + waterfall</li>
                         <li>Shoreline</li>
@@ -774,14 +776,14 @@
        A miniatura é obtida automaticamente a partir do link.
        ============================================================ */
     const TUTORIALS = [
-        { title: "Standard",         description: "Tutorial", url: "https://youtu.be/NwZGcDLxNHM" },
-        { title: "Water",            description: "Tutorial", url: "https://youtu.be/laXBUOpFSBM" },
-        { title: "Dissolve+",        description: "Tutorial", url: "https://youtu.be/xABm4BDh9K0" },
-        { title: "Sky & Cloud",      description: "Tutorial", url: "https://youtu.be/zrP6-ABWNqg" },
-        { title: "Vegetation",       description: "Tutorial", url: "https://youtu.be/dG5LtZaz4AI" },
-        { title: "Water Tools",      description: "Tutorial", url: "" },
-        { title: "Mesh Brush",       description: "Tutorial", url: "https://youtu.be/S3hiILq_F58" },
-        { title: "Image Processor",  description: "Tutorial", url: "https://youtu.be/bFMcPS_2hB8" }
+        { title: "Standard",           description: "Tutorial", url: "https://youtu.be/NwZGcDLxNHM" },
+        { title: "Water",              description: "Tutorial", url: "https://youtu.be/laXBUOpFSBM" },
+        { title: "Dissolve+",          description: "Tutorial", url: "https://youtu.be/xABm4BDh9K0" },
+        { title: "Sky & Cloud",        description: "Tutorial", url: "https://youtu.be/zrP6-ABWNqg" },
+        { title: "Vegetation",         description: "Tutorial", url: "https://youtu.be/dG5LtZaz4AI" },
+        { title: "Renderer Features",  description: "Tutorial", url: "https://youtu.be/kGI3pMpQe3s" },
+        { title: "Mesh Brush",         description: "Tutorial", url: "https://youtu.be/S3hiILq_F58" },
+        { title: "Image Processor",    description: "Tutorial", url: "https://youtu.be/bFMcPS_2hB8" }
     ];
 
     function getYouTubeId(url) {
