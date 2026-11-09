@@ -7,7 +7,7 @@
     <title>SOIA — Unity Tools & Resources</title>
     <meta name="description" content="SOIA creates tools and resources for Unity URP, with VR support, flexible features, intuitive workflows, and multilingual support.">
 
-    <link rel="icon" type="image/png" href="logoSoia.png">
+    <link rel="icon" type="image/png" href="images/logoSoia.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -395,6 +395,155 @@
         .b-ve { background: #8dff4f; }
         .b-sc { background: #b3ecff; }
 
+        /* ---------- Banner (topo de cada separador) ---------- */
+
+        .banner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 380px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            border-radius: 24px;
+            background: #153154;
+            box-shadow: 0 14px 30px rgba(4, 10, 24, 0.45);
+        }
+
+        .banner-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right,
+                rgba(18, 55, 95, 0.92) 0%,
+                rgba(18, 55, 95, 0.6) 38%,
+                rgba(18, 55, 95, 0) 72%);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 560px;
+            padding: 36px 40px;
+        }
+
+        .banner-logo {
+            width: min(340px, 100%);
+            height: auto;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+        }
+
+        .banner-subtitle {
+            margin-top: 14px;
+            font-size: clamp(24px, 3.4vw, 38px);
+            font-weight: 800;
+            line-height: 1.1;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+        }
+
+        .banner-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .banner-badges .badge {
+            width: 44px;
+            height: 44px;
+            font-size: 17px;
+        }
+
+        .banner-tag {
+            position: absolute;
+            right: 0;
+            bottom: 14px;
+            z-index: 2;
+            padding: 4px 18px 4px 12px;
+            background: rgba(0, 0, 0, 0.25);
+            font-size: 15px;
+            font-weight: 700;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 700px) {
+            .banner {
+                min-height: 300px;
+            }
+
+            .banner-content {
+                padding: 24px;
+            }
+
+            .banner-badges .badge {
+                width: 38px;
+                height: 38px;
+                font-size: 15px;
+            }
+
+            .banner-tag {
+                font-size: 12px;
+            }
+        }
+
+        /* ---------- Tabs ---------- */
+
+        .products .section-title {
+            margin-bottom: 24px;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-bottom: 44px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tab {
+            margin-bottom: -1px;
+            padding: 0 2px 12px;
+            border: 0;
+            border-bottom: 3px solid transparent;
+            background: none;
+            color: rgba(255, 255, 255, 0.55);
+            font: inherit;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .tab:hover {
+            color: #ffffff;
+        }
+
+        .tab[aria-selected="true"] {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+
+        .tab:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .tab-panel[hidden] {
+            display: none;
+        }
+
+        .b-in { background: #ff5a5a; }
+        .b-mi { background: #00c3ff; }
+        .b-so { background: #e47bff; }
+        .b-sa { background: #8dff4f; }
+
         /* ---------- Tutorials ---------- */
 
         .products hr.thin {
@@ -578,7 +727,7 @@
 
     <header class="block">
         <a href="#" class="header-logo-link">
-            <img class="header-logo" src="logoSoia_white.png" alt="SOIA">
+            <img class="header-logo" src="images/logoSoia_white.png" alt="SOIA">
         </a>
 
         <div class="header-right">
@@ -602,7 +751,7 @@
 
         <!-- Hero -->
         <section class="block hero">
-            <img class="hero-image" src="hero.webp" alt="">
+            <img class="hero-image" src="images/hero.webp" alt="">
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
@@ -636,14 +785,37 @@
                 <p class="languages-note">Multilingual interfaces directly within Unity.</p>
             </div>
 
-            <img class="about-logo" src="logoSoia.png" alt="SOIA logo">
+            <img class="about-logo" src="images/logoSoia.png" alt="SOIA logo">
         </section>
 
         <!-- Products -->
         <section class="block products" id="products">
             <h2 class="section-title">Products</h2>
 
-            <img class="toonest-logo" src="toonest_logo.webp" alt="TOONest">
+            <div class="tabs" role="tablist" aria-label="Products">
+                <button class="tab" role="tab" id="tab-btn-toonest" data-target="tab-toonest" aria-selected="true" aria-controls="tab-toonest">TOONest</button>
+                <button class="tab" role="tab" id="tab-btn-toomagic" data-target="tab-toomagic" aria-selected="false" aria-controls="tab-toomagic" tabindex="-1">TOOMagic Portal</button>
+            </div>
+
+            <!-- ============ TOONest ============ -->
+            <div class="tab-panel" id="tab-toonest" role="tabpanel" aria-labelledby="tab-btn-toonest">
+
+            <div class="banner">
+                <img class="banner-bg" src="images/hero.webp" alt="">
+                <div class="banner-overlay"></div>
+                <div class="banner-content">
+                    <img class="banner-logo" src="images/toonest/toonest_logo.webp" alt="TOONest">
+                    <h3 class="banner-subtitle">Stylized Shaders</h3>
+                    <div class="banner-badges" aria-hidden="true">
+                        <span class="badge b-st" title="Standard">St</span>
+                        <span class="badge b-wa" title="Water">Wa</span>
+                        <span class="badge b-dp" title="Dissolve+">D+</span>
+                        <span class="badge b-ve" title="Vegetation">Ve</span>
+                        <span class="badge b-sc" title="Sky &amp; Cloud">SC</span>
+                    </div>
+                </div>
+                <span class="banner-tag">Scene Included</span>
+            </div>
 
             <p class="intro">
                 A stylized shader and tools collection for Unity URP, with
@@ -657,35 +829,35 @@
             <div class="product-grid">
 
                 <article class="product-card has-badges">
-                    <img src="standard.png" alt="TOONest Standard Shader">
+                    <img src="images/toonest/standard.png" alt="TOONest Standard Shader">
                     <h3>Standard</h3>
                     <p>Outline, sketch style, XRay...</p>
                     <span class="badges" aria-hidden="true"><span class="badge b-st" title="Standard">St</span></span>
                 </article>
 
                 <article class="product-card has-badges">
-                    <img src="water.png" alt="TOONest Water Shader">
+                    <img src="images/toonest/water.png" alt="TOONest Water Shader">
                     <h3>Water</h3>
                     <p>Ocean, River &amp; Waterfall</p>
                     <span class="badges" aria-hidden="true"><span class="badge b-wa" title="Water">Wa</span></span>
                 </article>
 
                 <article class="product-card has-badges">
-                    <img src="dissolve.png" alt="TOONest Dissolve+ Shader">
+                    <img src="images/toonest/dissolve.png" alt="TOONest Dissolve+ Shader">
                     <h3>Dissolve +</h3>
                     <p>Self &amp; Interactive</p>
                     <span class="badges" aria-hidden="true"><span class="badge b-dp" title="Dissolve+">D+</span></span>
                 </article>
 
                 <article class="product-card has-badges">
-                    <img src="sky.png" alt="TOONest Sky &amp; Cloud Shader">
+                    <img src="images/toonest/sky.png" alt="TOONest Sky &amp; Cloud Shader">
                     <h3>Sky &amp; Cloud</h3>
                     <p>Cubemap &amp; Layers</p>
                     <span class="badges" aria-hidden="true"><span class="badge b-sc" title="Sky &amp; Cloud">SC</span></span>
                 </article>
 
                 <article class="product-card has-badges">
-                    <img src="vegetation.png" alt="TOONest Vegetation Shader">
+                    <img src="images/toonest/vegetation.png" alt="TOONest Vegetation Shader">
                     <h3>Vegetation</h3>
                     <p>Wind &amp; Billboard</p>
                     <span class="badges" aria-hidden="true"><span class="badge b-ve" title="Vegetation">Ve</span></span>
@@ -698,7 +870,7 @@
             <div class="product-grid tools-grid">
 
                 <article class="product-card has-badges">
-                    <img src="water%20tools.png" alt="TOONest Renderer Features">
+                    <img src="images/toonest/rendererFeatures.png" alt="TOONest Renderer Features">
                     <h3>Renderer Features</h3>
                     <ul class="tool-lines">
                         <li>River + waterfall</li>
@@ -709,7 +881,7 @@
                 </article>
 
                 <article class="product-card has-badges three-badges">
-                    <img src="meshBrush.png" alt="TOONest Mesh Brush">
+                    <img src="images/toonest/meshBrush.png" alt="TOONest Mesh Brush">
                     <h3>Mesh Brush</h3>
                     <ul class="tool-lines">
                         <li>Surface Paint</li>
@@ -719,7 +891,7 @@
                 </article>
 
                 <article class="product-card has-badges">
-                    <img src="vegTools.png" alt="TOONest Vegetation Tools">
+                    <img src="images/toonest/vegTools.png" alt="TOONest Vegetation Tools">
                     <h3>Vegetation Tools</h3>
                     <ul class="tool-lines">
                         <li>Wind Painter</li>
@@ -729,7 +901,7 @@
                 </article>
 
                 <article class="product-card has-badges two-badges">
-                    <img src="imageProc.png" alt="TOONest Image Processor">
+                    <img src="images/toonest/imageProc.png" alt="TOONest Image Processor">
                     <h3>Image Processor</h3>
                     <ul class="tool-lines">
                         <li>Styles</li>
@@ -748,6 +920,69 @@
 
             <!-- Os cards são gerados pela lista TUTORIALS no fim do ficheiro -->
             <div class="product-grid tools-grid" id="tutorials-grid"></div>
+
+            </div>
+
+            <!-- ============ TOOMagic Portal ============ -->
+            <div class="tab-panel" id="tab-toomagic" role="tabpanel" aria-labelledby="tab-btn-toomagic" hidden>
+
+                <div class="banner">
+                    <img class="banner-bg" src="images/toomagic/TOOMagicBanner.webp" alt="">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <img class="banner-logo" src="images/toomagic/toomagic_logo.webp" alt="TOOMagic Portal">
+                        <h3 class="banner-subtitle">Portal System</h3>
+                        <div class="banner-badges" aria-hidden="true">
+                            <span class="badge b-in" title="Infernal">In</span>
+                            <span class="badge b-mi" title="Mizu">Mi</span>
+                            <span class="badge b-so" title="Somnia">So</span>
+                            <span class="badge b-sa" title="Savia">Sa</span>
+                        </div>
+                    </div>
+                    <span class="banner-tag">Scene Included</span>
+                </div>
+
+                <p class="intro">
+                    A stylized portal system for Unity URP, with four
+                    ready-to-use portals and an example scene included.
+                </p>
+
+                <hr>
+
+                <h3 class="subsection-title">Portals</h3>
+
+                <div class="product-grid tools-grid">
+
+                    <article class="product-card has-badges">
+                        <img src="images/toomagic/infernal.png" alt="TOOMagic Infernal portal">
+                        <h3>Infernal</h3>
+                        <p>Suction, Controller, Link...</p>
+                        <span class="badges" aria-hidden="true"><span class="badge b-in" title="Infernal">In</span></span>
+                    </article>
+
+                    <article class="product-card has-badges">
+                        <img src="images/toomagic/mizu.png" alt="TOOMagic Mizu portal">
+                        <h3>Mizu</h3>
+                        <p>Suction, Controller, Link...</p>
+                        <span class="badges" aria-hidden="true"><span class="badge b-mi" title="Mizu">Mi</span></span>
+                    </article>
+
+                    <article class="product-card has-badges">
+                        <img src="images/toomagic/somnia.png" alt="TOOMagic Somnia portal">
+                        <h3>Somnia</h3>
+                        <p>Door dream, live destination...</p>
+                        <span class="badges" aria-hidden="true"><span class="badge b-so" title="Somnia">So</span></span>
+                    </article>
+
+                    <article class="product-card has-badges">
+                        <img src="images/toomagic/savia.png" alt="TOOMagic Savia portal">
+                        <h3>Savia</h3>
+                        <p>Suction, Controller, Paint...</p>
+                        <span class="badges" aria-hidden="true"><span class="badge b-sa" title="Savia">Sa</span></span>
+                    </article>
+
+                </div>
+            </div>
         </section>
 
         <!-- Contact -->
@@ -802,6 +1037,31 @@
             return "";
         }
     }
+
+    /* Separadores da secção Products */
+    (function initTabs() {
+        const tabs = Array.from(document.querySelectorAll(".tab"));
+        if (!tabs.length) return;
+
+        function show(tab) {
+            tabs.forEach(function (t) {
+                const on = t === tab;
+                t.setAttribute("aria-selected", on ? "true" : "false");
+                t.tabIndex = on ? 0 : -1;
+                document.getElementById(t.dataset.target).hidden = !on;
+            });
+        }
+
+        tabs.forEach(function (tab, i) {
+            tab.addEventListener("click", function () { show(tab); });
+            tab.addEventListener("keydown", function (e) {
+                if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+                const next = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+                show(next);
+                next.focus();
+            });
+        });
+    })();
 
     (function renderTutorials() {
         const grid = document.getElementById("tutorials-grid");
